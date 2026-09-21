@@ -13,88 +13,109 @@ interface Props {
   index?: number;
 }
 
-export default function ProjectCard({ project, featured = false, index = 0 }: Props) {
+export default function ProjectCard({
+  project,
+  featured = false,
+  index = 0,
+}: Props) {
   const reduceMotion = useReducedMotion();
+  const displayNumber = String(index + 1).padStart(2, "0");
 
   return (
     <motion.article
       initial={reduceMotion ? false : { opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.45, delay: index * 0.06, ease: "easeOut" }}
+      transition={{ duration: 0.45, delay: (index % 2) * 0.08, ease: "easeOut" }}
       className={cn(
-        "group relative flex h-full flex-col overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,_rgba(18,18,22,0.94),_rgba(12,12,15,0.96))] p-5 shadow-[0_24px_80px_rgba(2,6,23,0.36)] transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_36px_90px_rgba(2,6,23,0.45)]",
-        featured && "sm:p-7",
+        "editorial-card group flex h-full flex-col justify-between rounded-[28px] border bg-[#FAF7F4] p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 min-h-[380px]",
+        featured
+          ? "border-[#1A1A1A]/40 shadow-sm hover:border-[#1A1A1A]"
+          : "border-[#E0D9D1] hover:border-[#1A1A1A]/40"
       )}
     >
-      {featured && (
-        <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-blue-300/80 to-transparent" aria-hidden="true" />
-      )}
+      {/* Top micro metadata header */}
+      <div>
+        <div className="mb-5 flex items-center justify-between gap-3 border-b border-[#E0D9D1] pb-3">
+          <div className="flex items-center gap-2">
+            <span className="text-[11px] font-mono font-bold tracking-widest text-[#A39E98]">
+              {displayNumber}
+            </span>
+            {featured && (
+              <>
+                <span className="text-[#D5CCC0]">·</span>
+                <span className="inline-flex items-center rounded-full bg-[#1A1A1A] px-2.5 py-0.5 text-[9px] font-bold tracking-[0.16em] text-[#F5F0EB] uppercase">
+                  FLAGSHIP
+                </span>
+              </>
+            )}
+          </div>
 
-      <div className="mb-5 flex items-center justify-between gap-3">
-        <p className="text-[10px] font-medium tracking-[0.22em] text-zinc-500 uppercase">
-          {String(index + 1).padStart(2, "0")}
+          <div className="flex items-center gap-3">
+            {project.status ? (
+              <span className="text-[10px] font-medium tracking-[0.16em] text-[#6B6560] uppercase">
+                {project.status}
+              </span>
+            ) : (
+              <span className="text-[10px] font-medium tracking-[0.16em] text-[#A39E98] uppercase">
+                PUBLIC REPO
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* Title + External GitHub Icon */}
+        <div className="flex items-start justify-between gap-4">
+          <h3 className="text-2xl sm:text-[1.65rem] font-extrabold tracking-[-0.03em] uppercase text-[#1A1A1A] leading-snug group-hover:text-[#6B6560] transition-colors">
+            {project.name}
+          </h3>
+
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#E0D9D1] bg-[#F5F0EB] text-[#1A1A1A] transition-all hover:bg-[#1A1A1A] hover:text-[#F5F0EB] hover:border-[#1A1A1A]"
+            aria-label={`${project.name} on GitHub`}
+            title="View on GitHub"
+          >
+            <ArrowUpRight size={15} aria-hidden="true" />
+          </a>
+        </div>
+
+        {/* One-Liner Description */}
+        <p className="mt-4 text-sm text-[#6B6560] leading-relaxed">
+          {project.oneLiner}
         </p>
-        {featured ? (
-          <p className="text-[10px] font-medium tracking-[0.22em] text-blue-300 uppercase">
-            Featured project
-          </p>
-        ) : (
-          project.status && (
-            <p className="text-[10px] font-medium tracking-[0.18em] text-zinc-400 uppercase">
-              {project.status}
-            </p>
-          )
-        )}
+
+        {/* Tags */}
+        <ul className="mt-6 flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <li key={tag}>
+              <Tag label={tag} />
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <div className="flex items-start justify-between gap-4">
-        <h3 className={cn("font-semibold tracking-[-0.04em] text-white", featured ? "text-2xl" : "text-xl")}>
-          {project.name}
-        </h3>
-
-        <a
-          href={project.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.02] text-zinc-300 transition-colors hover:border-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-          aria-label={`${project.name} on GitHub`}
-        >
-          <ArrowUpRight size={16} aria-hidden="true" />
-        </a>
-      </div>
-
-      <p className={cn("mt-4 text-zinc-400", featured ? "text-base" : "text-sm")}>
-        {project.oneLiner}
-      </p>
-
-      <ul className="mt-5 flex flex-wrap gap-2">
-        {project.tags.map((tag) => (
-          <li key={tag}>
-            <Tag label={tag} />
-          </li>
-        ))}
-      </ul>
-
-      <div className="mt-auto flex items-center justify-between gap-3 pt-6">
+      {/* Bottom Footer Actions */}
+      <div className="mt-8 flex items-center justify-between gap-3 border-t border-[#E0D9D1]/70 pt-5">
         <Link
           href={`/projects/${project.slug}`}
-          className="inline-flex items-center gap-1 text-sm font-medium text-blue-300 transition-colors hover:text-blue-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-[0.1em] text-[#1A1A1A] uppercase transition-colors hover:text-[#6B6560]"
         >
-          View case study
-          <ArrowUpRight size={16} aria-hidden="true" />
+          <span>View Case Study</span>
+          <ArrowUpRight size={14} aria-hidden="true" />
         </Link>
 
         <a
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-white/20 hover:text-white"
+          className="text-xs font-medium text-[#6B6560] hover:text-[#1A1A1A] transition-colors"
         >
-          GitHub
+          GitHub →
         </a>
       </div>
     </motion.article>
   );
 }
-

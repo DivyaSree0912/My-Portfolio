@@ -1,60 +1,65 @@
-import { Award, Code, GraduationCap, Trophy } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 import { achievements } from "@/data/achievements";
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import SectionHeading from "@/components/ui/SectionHeading";
-
-const icons: Record<string, LucideIcon> = {
-  Trophy,
-  Award,
-  Code,
-  GraduationCap,
-};
 
 export default function Achievements() {
   return (
     <section
       id="achievements"
-      className="section-shell scroll-mt-24 py-24 sm:py-32"
+      className="section-shell scroll-mt-20 py-28 sm:py-36 border-b border-[#E0D9D1]"
       aria-labelledby="achievements-heading"
     >
-      <div className="mx-auto max-w-6xl px-6">
-        <AnimatedSection className="mb-8">
-          <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-4">
-            <p className="text-[10px] font-medium tracking-[0.22em] text-zinc-400 uppercase">
-              06 / ACHIEVEMENTS
-            </p>
-            <p className="text-[10px] font-medium tracking-[0.22em] text-zinc-500 uppercase">
-              RECOGNIZED WORK
+      <div className="mx-auto max-w-7xl px-6 sm:px-10">
+        {/* Section Header */}
+        <AnimatedSection className="mb-14">
+          <div className="flex items-center justify-between gap-4 border-b border-[#E0D9D1] pb-4">
+            <div className="flex items-center gap-3">
+              <span className="inline-block w-2 h-2 rounded-full bg-[#1A1A1A]" />
+              <p className="text-[10px] font-medium tracking-[0.22em] text-[#6B6560] uppercase">
+                06 / ACHIEVEMENTS
+              </p>
+            </div>
+            <p className="text-[10px] font-medium tracking-[0.22em] text-[#A39E98] uppercase">
+              RECOGNITIONS · COMPETITIONS
             </p>
           </div>
         </AnimatedSection>
 
-        <SectionHeading id="achievements-heading" title="Achievements" />
+        {/* Large Editorial Heading */}
+        <AnimatedSection delay={0.05} className="mb-16">
+          <h2
+            id="achievements-heading"
+            className="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-[-0.04em] uppercase text-[#1A1A1A] leading-[1.05]"
+          >
+            HONORS &amp;
+            <span className="block text-outline font-black">ACHIEVEMENTS.</span>
+          </h2>
+        </AnimatedSection>
 
-        <div className="grid gap-4 sm:grid-cols-2">
-          {achievements.map((item, index) => {
-            const Icon = icons[item.icon] ?? Award;
-            return (
-              <AnimatedSection key={item.title} delay={index * 0.05}>
-                <article className="premium-card h-full rounded-[26px] p-5 transition-transform duration-300 hover:-translate-y-0.5">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-blue-400/20 bg-blue-500/10">
-                      <Icon
-                        size={18}
-                        className="shrink-0 text-blue-300"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-zinc-400">{item.details}</p>
-                    </div>
+        {/* Editorial Numbered Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {achievements.map((item, index) => (
+            <AnimatedSection key={item.title} delay={index * 0.07}>
+              <article className="editorial-card h-full rounded-[28px] p-8 border border-[#E0D9D1] bg-[#FAF7F4] flex flex-col justify-between transition-all duration-300 hover:border-[#1A1A1A]/40 hover:-translate-y-1">
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="text-3xl sm:text-4xl font-black text-outline tracking-wider font-mono">
+                      0{index + 1}
+                    </span>
+                    <span className="text-[10px] font-semibold tracking-[0.2em] text-[#A39E98] uppercase">
+                      RECOGNITION
+                    </span>
                   </div>
-                </article>
-              </AnimatedSection>
-            );
-          })}
+
+                  <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1A1A1A]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 text-sm sm:text-base text-[#6B6560] leading-relaxed">
+                    {item.details}
+                  </p>
+                </div>
+              </article>
+            </AnimatedSection>
+          ))}
         </div>
       </div>
     </section>

@@ -36,7 +36,7 @@
 
 **Bio**:
 
-I'm Divya Sree — a Computer Science undergraduate at GITAM University (9.3 CGPA) building at the intersection of software engineering and applied AI. My work spans explainable deep learning for medical imaging, AI-powered backend systems, and computer vision pipelines. I build across the stack: EfficientNet and YOLOv8 on the ML side, Node.js and React on the product side. I placed 1st at a GDGoC state-level hackathon, participated in SIH 2025, and have solved 100+ problems on LeetCode. I focus on building systems that are practical, well-engineered, and backed by real evidence.
+I'm Divya Sree — a Computer Science undergraduate at GITAM University (9.3 CGPA) building at the intersection of software engineering and applied AI. My work spans explainable deep learning for medical imaging, AI-powered backend systems, and computer vision pipelines. I build across the stack: EfficientNet and YOLOv8 on the ML side, Node.js and React on the product side. I placed 1st at a GDGoC state-level hackathon, qualified for the 1st round of SIH 2026, and have solved 100+ problems on LeetCode. I focus on building systems that are practical, well-engineered, and backed by real evidence.
 
 **Education Display**:
 - B.Tech CSE — GITAM University, Visakhapatnam

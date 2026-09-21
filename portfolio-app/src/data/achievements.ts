@@ -8,8 +8,8 @@ export const achievements: Achievement[] = [
   },
   {
     icon: 'Award',
-    title: 'Smart India Hackathon (SIH) 2025',
-    details: 'Participated and contributed to an offline SOS alert solution for tourist safety.',
+    title: 'Smart India Hackathon (SIH) 2026',
+    details: 'Qualified for the 1st round and contributed to an offline SOS alert solution for tourist safety.',
   },
   {
     icon: 'Code',

@@ -30,64 +30,75 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="section-shell scroll-mt-24 py-24 sm:py-32"
+      className="section-shell scroll-mt-20 py-28 sm:py-36 border-b border-[#E0D9D1]"
       aria-labelledby="contact-heading"
     >
-      <div className="mx-auto max-w-6xl px-6">
-        <AnimatedSection className="mb-8">
-          <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-4">
-            <p className="text-[10px] font-medium tracking-[0.22em] text-zinc-400 uppercase">
-              09 / CONTACT
-            </p>
-            <p className="text-[10px] font-medium tracking-[0.22em] text-zinc-500 uppercase">
-              START A CONVERSATION
-            </p>
-          </div>
-        </AnimatedSection>
-
-        <AnimatedSection>
-          <div className="premium-card rounded-[32px] p-6 sm:p-8 lg:p-10">
-            <div className="mb-8">
-              <p className="text-[11px] font-medium tracking-[0.22em] text-blue-300 uppercase">
-                Let&apos;s build something useful
+      <div className="mx-auto max-w-7xl px-6 sm:px-10">
+        {/* Section Header */}
+        <AnimatedSection className="mb-14">
+          <div className="flex items-center justify-between gap-4 border-b border-[#E0D9D1] pb-4">
+            <div className="flex items-center gap-3">
+              <span className="inline-block w-2 h-2 rounded-full bg-[#1A1A1A]" />
+              <p className="text-[10px] font-medium tracking-[0.22em] text-[#6B6560] uppercase">
+                09 / CONTACT
               </p>
-              <h2
-                id="contact-heading"
-                className="mt-4 text-4xl font-semibold tracking-[-0.08em] text-white sm:text-5xl lg:text-7xl"
-              >
-                LET&apos;S BUILD
-                <span className="mt-1 block text-zinc-300">SOMETHING USEFUL.</span>
-              </h2>
             </div>
-
-            <ul className="grid gap-4 sm:grid-cols-3">
-              {channels.map((channel) => {
-                const Icon = channel.icon;
-                return (
-                  <li key={channel.label}>
-                    <a
-                      href={channel.href}
-                      {...(channel.external
-                        ? { target: "_blank", rel: "noopener noreferrer" }
-                        : {})}
-                      className="group flex h-full items-start gap-3 rounded-[22px] border border-white/10 bg-white/[0.02] p-4 transition-all duration-200 hover:border-white/20 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-                    >
-                      <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-blue-400/20 bg-blue-500/10">
-                        <Icon size={18} className="text-blue-300" aria-hidden="true" />
-                      </div>
-                      <span>
-                        <span className="block text-sm text-zinc-500">{channel.label}</span>
-                        <span className="mt-1 block text-sm font-medium text-white">
-                          {channel.value}
-                        </span>
-                      </span>
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
+            <p className="text-[10px] font-medium tracking-[0.22em] text-[#A39E98] uppercase">
+              GET IN TOUCH
+            </p>
           </div>
         </AnimatedSection>
+
+        {/* Large Closing Statement: Solid + Outlined */}
+        <AnimatedSection delay={0.05} className="mb-16">
+          <h2
+            id="contact-heading"
+            className="text-4xl sm:text-6xl xl:text-8xl font-black tracking-[-0.04em] uppercase text-[#1A1A1A] leading-[1.0]"
+          >
+            LET&apos;S BUILD
+            <span className="block text-outline-lg my-1">SOMETHING</span>
+            <span>USEFUL.</span>
+          </h2>
+          <p className="mt-6 text-base sm:text-lg text-[#6B6560] max-w-xl font-normal leading-relaxed">
+            Interested in software engineering, applied AI, or collaboration opportunities. Reach out directly through any of the channels below.
+          </p>
+        </AnimatedSection>
+
+        {/* Channels Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {channels.map((channel, index) => {
+            const Icon = channel.icon;
+            return (
+              <AnimatedSection key={channel.label} delay={0.1 + index * 0.05}>
+                <a
+                  href={channel.href}
+                  {...(channel.external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  className="editorial-card group flex flex-col justify-between h-full rounded-[28px] p-8 border border-[#E0D9D1] bg-[#FAF7F4] transition-all duration-300 hover:border-[#1A1A1A]/50 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1A1A1A]"
+                >
+                  <div className="flex items-center justify-between mb-8">
+                    <span className="text-[10px] font-semibold tracking-[0.2em] text-[#A39E98] uppercase">
+                      {channel.label}
+                    </span>
+                    <div className="w-10 h-10 rounded-full border border-[#E0D9D1] bg-[#F5F0EB] flex items-center justify-center text-[#1A1A1A] group-hover:bg-[#1A1A1A] group-hover:text-[#F5F0EB] transition-all duration-200">
+                      <Icon size={16} aria-hidden="true" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <span className="text-base sm:text-lg font-bold text-[#1A1A1A] group-hover:text-[#6B6560] transition-colors break-all">
+                      {channel.value}
+                    </span>
+                    <span className="block text-xs text-[#A39E98] mt-1 uppercase tracking-wider">
+                      Connect ↗
+                    </span>
+                  </div>
+                </a>
+              </AnimatedSection>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

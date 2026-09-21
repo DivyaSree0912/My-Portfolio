@@ -1,66 +1,73 @@
-import { Code2 } from "lucide-react";
 import { problemSolving } from "@/data/problemSolving";
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import Tag from "@/components/ui/Tag";
 
 export default function ProblemSolving() {
   return (
     <section
       id="problem-solving"
-      className="section-shell scroll-mt-24 py-24 sm:py-32"
+      className="section-shell scroll-mt-20 py-28 sm:py-36 border-b border-[#E0D9D1]"
       aria-labelledby="problem-solving-heading"
     >
-      <div className="mx-auto max-w-6xl px-6">
-        <AnimatedSection className="mb-8">
-          <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-4">
-            <p className="text-[10px] font-medium tracking-[0.22em] text-zinc-400 uppercase">
-              08 / PROBLEM SOLVING
-            </p>
-            <p className="text-[10px] font-medium tracking-[0.22em] text-zinc-500 uppercase">
-              DATA STRUCTURES · PATTERNS · PRACTICE
+      <div className="mx-auto max-w-7xl px-6 sm:px-10">
+        {/* Section Header */}
+        <AnimatedSection className="mb-14">
+          <div className="flex items-center justify-between gap-4 border-b border-[#E0D9D1] pb-4">
+            <div className="flex items-center gap-3">
+              <span className="inline-block w-2 h-2 rounded-full bg-[#1A1A1A]" />
+              <p className="text-[10px] font-medium tracking-[0.22em] text-[#6B6560] uppercase">
+                08 / PROBLEM SOLVING
+              </p>
+            </div>
+            <p className="text-[10px] font-medium tracking-[0.22em] text-[#A39E98] uppercase">
+              ALGORITHMIC FOUNDATIONS
             </p>
           </div>
         </AnimatedSection>
 
-        <AnimatedSection>
-          <article className="premium-card rounded-[30px] p-6 sm:p-8">
-            <div className="grid gap-6 lg:grid-cols-[0.6fr_1.4fr] lg:items-center">
-              <div className="flex items-center gap-4 lg:flex-col lg:items-start">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-blue-400/20 bg-blue-500/10">
-                  <Code2 className="shrink-0 text-blue-300" size={22} aria-hidden="true" />
+        {/* Large Editorial Heading */}
+        <AnimatedSection delay={0.05} className="mb-16">
+          <h2
+            id="problem-solving-heading"
+            className="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-[-0.04em] uppercase text-[#1A1A1A] leading-[1.05]"
+          >
+            PROBLEM SOLVING,
+            <span className="block text-outline font-black">ALGORITHMIC RIGOR.</span>
+          </h2>
+        </AnimatedSection>
+
+        {/* Editorial Highlight Card */}
+        <AnimatedSection delay={0.1}>
+          <article className="editorial-card rounded-[32px] p-8 sm:p-12 border border-[#E0D9D1] bg-[#FAF7F4] relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-36 h-36 dot-grid opacity-25 pointer-events-none" />
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              {/* Left Column: Big metric */}
+              <div className="lg:col-span-5 border-b lg:border-b-0 lg:border-r border-[#E0D9D1] pb-8 lg:pb-0 lg:pr-8">
+                <p className="text-[10px] font-semibold tracking-[0.2em] text-[#A39E98] uppercase mb-2">
+                  PLATFORM: {problemSolving.platform.toUpperCase()}
+                </p>
+                <div className="text-4xl sm:text-6xl font-black tracking-tight text-[#1A1A1A]">
+                  100+
                 </div>
-                <div>
-                  <p className="text-[10px] font-medium tracking-[0.18em] text-zinc-500 uppercase">
-                    Platform
-                  </p>
-                  <h3 className="mt-2 text-2xl font-semibold tracking-[-0.05em] text-white">
-                    {problemSolving.platform}
-                  </h3>
-                </div>
+                <p className="text-base sm:text-lg font-medium text-[#6B6560] mt-1">
+                  Problems Solved
+                </p>
+                <p className="text-xs text-[#A39E98] mt-3 font-normal leading-relaxed">
+                  Consistent competitive programming and data structure practice.
+                </p>
               </div>
 
-              <div>
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                  <p className="text-[10px] font-medium tracking-[0.18em] text-blue-300 uppercase">
-                    {problemSolving.metric}
-                  </p>
-                  <span className="inline-flex w-fit rounded-full border border-white/10 bg-white/[0.02] px-2.5 py-1 text-[10px] font-medium tracking-[0.16em] text-zinc-300 uppercase">
-                    Core problem solving
-                  </span>
-                </div>
-
-                <p className="mt-4 text-sm leading-relaxed text-zinc-400 sm:text-base">
-                  Topics practiced across arrays, strings, linked lists, trees, graphs,
-                  recursion, dynamic programming, and greedy algorithms.
+              {/* Right Column: Topics practiced */}
+              <div className="lg:col-span-7">
+                <p className="text-[10px] font-semibold tracking-[0.2em] text-[#A39E98] uppercase mb-4">
+                  CORE TOPICS PRACTICED
                 </p>
-
-                <p className="mt-5 text-[10px] font-medium tracking-[0.18em] text-zinc-500 uppercase">
-                  Topics practiced
-                </p>
-                <ul className="mt-3 flex flex-wrap gap-2">
+                <ul className="flex flex-wrap gap-2.5">
                   {problemSolving.topics.map((topic) => (
                     <li key={topic}>
-                      <Tag label={topic} />
+                      <span className="inline-block rounded-full border border-[#E0D9D1] bg-[#F5F0EB] px-4 py-2 text-xs font-medium text-[#1A1A1A] tracking-wide hover:border-[#1A1A1A] transition-colors">
+                        {topic}
+                      </span>
                     </li>
                   ))}
                 </ul>

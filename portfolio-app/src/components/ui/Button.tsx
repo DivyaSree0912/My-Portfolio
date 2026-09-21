@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 import { ReactNode } from 'react';
+import { ArrowRight } from 'lucide-react';
 
 interface Props {
   children: ReactNode;
@@ -9,6 +10,7 @@ interface Props {
   external?: boolean;
   className?: string;
   onClick?: () => void;
+  arrow?: boolean;
 }
 
 export default function Button({
@@ -19,26 +21,35 @@ export default function Button({
   external,
   className,
   onClick,
+  arrow = false,
 }: Props) {
   const baseStyles =
-    'inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950';
+    'group inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1A1A1A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F5F0EB]';
 
   const variants = {
     primary:
-      'border border-blue-300/40 bg-gradient-to-r from-blue-400 to-indigo-400 text-slate-950 shadow-[0_18px_40px_rgba(96,165,250,0.25)] hover:translate-y-[-1px] hover:shadow-[0_22px_50px_rgba(96,165,250,0.32)] active:translate-y-0',
+      'bg-[#1A1A1A] text-[#F5F0EB] hover:bg-[#333] active:bg-[#111]',
     secondary:
-      'border border-white/10 bg-white/[0.03] text-zinc-100 hover:border-white/20 hover:bg-white/[0.06] hover:text-white',
+      'border border-[#1A1A1A] bg-transparent text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-[#F5F0EB]',
     ghost:
-      'text-zinc-300 hover:text-white hover:bg-white/[0.04]',
+      'text-[#6B6560] hover:text-[#1A1A1A]',
   };
 
   const sizes = {
-    sm: 'px-3 py-1.5 text-sm',
-    md: 'px-5 py-2.5 text-sm',
-    lg: 'px-6 py-3 text-base',
+    sm: 'px-4 py-2 text-xs tracking-[0.08em] uppercase',
+    md: 'px-6 py-2.5 text-xs tracking-[0.08em] uppercase',
+    lg: 'px-8 py-3 text-sm tracking-[0.06em] uppercase',
   };
 
   const classes = cn(baseStyles, variants[variant], sizes[size], className);
+
+  const arrowEl = arrow ? (
+    <ArrowRight
+      size={14}
+      className="transition-transform duration-200 group-hover:translate-x-0.5"
+      aria-hidden="true"
+    />
+  ) : null;
 
   if (href) {
     return (
@@ -48,6 +59,7 @@ export default function Button({
         {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
       >
         {children}
+        {arrowEl}
       </a>
     );
   }
@@ -55,6 +67,7 @@ export default function Button({
   return (
     <button type="button" onClick={onClick} className={classes}>
       {children}
+      {arrowEl}
     </button>
   );
 }

@@ -18,30 +18,41 @@ export default function Image() {
           flexDirection: "column",
           justifyContent: "center",
           padding: 80,
-          background: "#09090b",
-          color: "#fafafa",
+          background: "#F5F0EB",
+          color: "#1A1A1A",
+          fontFamily: "sans-serif",
+          border: "16px solid #E0D9D1",
         }}
       >
         <div
           style={{
-            fontSize: 22,
+            fontSize: 20,
             letterSpacing: 4,
             textTransform: "uppercase",
-            color: "#60a5fa",
+            color: "#6B6560",
             marginBottom: 24,
+            fontWeight: 600,
           }}
         >
-          Software Engineer · AI/ML · Builder
+          01 // PORTFOLIO · SOFTWARE ENGINEERING · AI/ML
         </div>
-        <div style={{ fontSize: 64, fontWeight: 700, letterSpacing: -1 }}>
+        <div
+          style={{
+            fontSize: 72,
+            fontWeight: 900,
+            letterSpacing: -2,
+            textTransform: "uppercase",
+            lineHeight: 1.1,
+          }}
+        >
           DADI DIVYA SREE
         </div>
         <div
           style={{
-            marginTop: 28,
-            fontSize: 28,
-            color: "#a1a1aa",
-            maxWidth: 880,
+            marginTop: 24,
+            fontSize: 26,
+            color: "#6B6560",
+            maxWidth: 900,
             lineHeight: 1.4,
           }}
         >

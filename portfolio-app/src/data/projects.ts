@@ -74,57 +74,37 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "intelliview",
-    name: "IntelliView Orchestrator",
+    slug: "tourx",
+    name: "TourX",
     oneLiner:
-      "AI-powered interview orchestration backend with Gemini-driven question generation.",
-    tags: ["Python", "Gemini API"],
-    github: "https://github.com/DivyaSree0912/intelliview-orchestrator",
+      "Tourist safety frontend prototype with SOS interface, safety scoring, and emergency contact management.",
+    tags: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+    github: "https://github.com/DivyaSree0912/TourX",
     problem:
-      "AI-powered interviews require reliable backend orchestration — validated configurations, proper environment setup, and dynamically generated questions tailored to specific job descriptions. Without this, interview systems produce generic, untraceable questions.",
+      "Tourists in unfamiliar locations face safety risks and often lack access to fast, location-aware emergency-response tools.",
     solution:
-      "A backend orchestration system that validates configuration and environment readiness, then uses the Gemini API to generate interview questions from job descriptions. Each generated question is tagged with source information for traceability.",
-    contributions: [
-      "Implemented configuration validation and environment checks",
-      "Built Gemini-powered question generation (generate_questions with configurable count)",
-      "Ensured AI-generated questions are tagged with source information for traceability",
-      "Managed Gemini API configuration and environment variable setup",
+      "A React/TypeScript frontend prototype for a tourist safety platform, featuring an SOS emergency interface, safety scoring dashboard, location tracking controls, emergency contact management, and an onboarding flow. Built as a concept for the Smart India Hackathon (SIH) 2026.",
+    contributions: [],
+    technology: [
+      "React 18",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "React Router",
+      "Lucide React",
     ],
-    technology: ["Python", "Gemini API"],
     implementationDetails: [
-      "generate_questions(job_description, count) generates interview questions from a given job description using the Gemini API",
-      "Each generated question includes source tagging for traceability",
-      "Configuration validation ensures the environment is correctly set up before any API calls",
+      "13 pages/components covering emergency SOS, tracking, safety maps, alerts, and more",
+      "SOS emergency interface with activation button and emergency contact list",
+      "Safety scoring dashboard with factor breakdown and recommendations",
+      "Location tracking controls with sharing toggles",
     ],
-    results: [],
-  },
-  {
-    slug: "interview-manager",
-    name: "AI Interview Session Manager",
-    oneLiner:
-      "Backend system for managing AI interview session lifecycles with REST APIs and MongoDB.",
-    tags: ["Node.js", "Express.js", "MongoDB"],
-    github:
-      "https://github.com/DivyaSree0912/ai-interview-session-manager",
-    problem:
-      "AI interview platforms need robust session management — tracking session state, enforcing lifecycle rules, and providing structured, validated API responses for frontend consumption.",
-    solution:
-      "A Node.js/Express.js backend with MongoDB that manages the full lifecycle of AI interview sessions through REST APIs, with strict state enforcement and structured JSON responses.",
-    contributions: [
-      "Built the backend application using Node.js, Express.js, MongoDB, and Mongoose",
-      "Designed and implemented REST API endpoints for session management",
-      "Implemented session lifecycle with six statuses: CREATED, IN_PROGRESS, PAUSED, COMPLETED, FAILED, EXPIRED",
-      "Enforced business rules — e.g., preventing answer submission after a session is COMPLETED",
-      "Implemented input validation and structured JSON response formatting",
+    results: [
+      "Related to Smart India Hackathon (SIH) 2026 participation",
     ],
-    technology: ["Node.js", "Express.js", "MongoDB", "Mongoose"],
-    implementationDetails: [
-      "Six distinct session states: CREATED → IN_PROGRESS → PAUSED → COMPLETED / FAILED / EXPIRED",
-      "Business logic prevents invalid state transitions (e.g., no answers accepted after COMPLETED)",
-      "Validation layer ensures all API inputs meet expected schemas",
-      "All responses follow a consistent structured JSON format",
+    notes: [
+      "This is a frontend prototype. All data is static/hardcoded. There is no backend, no database integration, and no live API calls.",
     ],
-    results: [],
   },
   {
     slug: "phone-detection",
@@ -157,37 +137,119 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "tourx",
-    name: "TourX",
+    slug: "interview-manager",
+    name: "AI Interview Session Manager",
     oneLiner:
-      "Tourist safety frontend prototype with SOS interface, safety scoring, and emergency contact management.",
-    tags: ["React", "TypeScript", "Vite", "Tailwind CSS"],
-    github: "https://github.com/DivyaSree0912/TourX",
+      "Backend system for managing AI interview session lifecycles with REST APIs and MongoDB.",
+    tags: ["Node.js", "Express.js", "MongoDB"],
+    github:
+      "https://github.com/DivyaSree0912/ai-interview-session-manager",
     problem:
-      "Tourists in unfamiliar locations face safety risks and often lack access to fast, location-aware emergency-response tools.",
+      "AI interview platforms need robust session management — tracking session state, enforcing lifecycle rules, and providing structured, validated API responses for frontend consumption.",
     solution:
-      "A React/TypeScript frontend prototype for a tourist safety platform, featuring an SOS emergency interface, safety scoring dashboard, location tracking controls, emergency contact management, and an onboarding flow. Built as a concept for the Smart India Hackathon (SIH) 2025.",
-    contributions: [],
-    technology: [
-      "React 18",
-      "TypeScript",
-      "Vite",
-      "Tailwind CSS",
-      "React Router",
-      "Lucide React",
+      "A Node.js/Express.js backend with MongoDB that manages the full lifecycle of AI interview sessions through REST APIs, with strict state enforcement and structured JSON responses.",
+    contributions: [
+      "Built the backend application using Node.js, Express.js, MongoDB, and Mongoose",
+      "Designed and implemented REST API endpoints for session management",
+      "Implemented session lifecycle with six statuses: CREATED, IN_PROGRESS, PAUSED, COMPLETED, FAILED, EXPIRED",
+      "Enforced business rules — e.g., preventing answer submission after a session is COMPLETED",
+      "Implemented input validation and structured JSON response formatting",
     ],
+    technology: ["Node.js", "Express.js", "MongoDB", "Mongoose"],
     implementationDetails: [
-      "13 pages/components covering emergency SOS, tracking, safety maps, alerts, and more",
-      "SOS emergency interface with activation button and emergency contact list",
-      "Safety scoring dashboard with factor breakdown and recommendations",
-      "Location tracking controls with sharing toggles",
+      "Six distinct session states: CREATED → IN_PROGRESS → PAUSED → COMPLETED / FAILED / EXPIRED",
+      "Business logic prevents invalid state transitions (e.g., no answers accepted after COMPLETED)",
+      "Validation layer ensures all API inputs meet expected schemas",
+      "All responses follow a consistent structured JSON format",
+    ],
+    results: [],
+  },
+  {
+    slug: "codealpha-ecommerce",
+    name: "CodeAlpha Simple E-Commerce Store",
+    oneLiner:
+      "Full-stack e-commerce web application with product catalog, cart, user auth, and order management.",
+    tags: ["Node.js", "Express.js", "MongoDB", "JavaScript"],
+    github: "https://github.com/DivyaSree0912/CodeAlpha_SimpleEcommerceStore",
+    status: "June 2026",
+    problem:
+      "E-commerce platforms require a cohesive full-stack architecture — managing product listings, handling customer shopping carts, securing authentication, and persistently tracking order lifecycles.",
+    solution:
+      "A full-stack e-commerce web application developed with Node.js, Express.js, and MongoDB that enables product catalog browsing, cart operations, user registration/login, and order processing.",
+    contributions: [
+      "Built RESTful API endpoints for product CRUD operations, cart management, and order submission",
+      "Implemented user registration and login flows with session/state handling",
+      "Integrated MongoDB schemas for products, user accounts, and customer orders",
+      "Designed responsive frontend interfaces for product catalogs, detailed views, cart, and order history",
+    ],
+    technology: ["Node.js", "Express.js", "MongoDB", "JavaScript", "HTML/CSS"],
+    implementationDetails: [
+      "REST API endpoints: GET/POST/DELETE /products, POST /register, POST /login, GET/POST /orders",
+      "Clean separation of frontend views (product, cart, orders) and Express backend controllers",
+      "MongoDB document storage for product inventories and customer order histories",
     ],
     results: [
-      "Related to Smart India Hackathon (SIH) 2025 participation",
+      "Developed as part of the CodeAlpha Full Stack Development Internship",
     ],
     notes: [
-      "This is a frontend prototype. All data is static/hardcoded. There is no backend, no database integration, and no live API calls.",
+      "Developed as part of the CodeAlpha Full Stack Development Internship.",
     ],
+  },
+  {
+    slug: "codealpha-project-management",
+    name: "CodeAlpha Project Management Tool",
+    oneLiner:
+      "Full-stack project and task management dashboard with project tracking, task status workflows, and search/filtering.",
+    tags: ["Node.js", "Express.js", "MongoDB", "JavaScript"],
+    github: "https://github.com/DivyaSree0912/CodeAlpha_ProjectManagementTool",
+    status: "June 2026",
+    problem:
+      "Managing software projects requires centralized visibility — tracking multiple projects, organizing task backlogs, monitoring status workflows, and keeping teams aligned without complex overhead.",
+    solution:
+      "A full-stack project management web application built with Node.js, Express.js, MongoDB, and JavaScript featuring a centralized dashboard, task CRUD operations, progress analytics, and filtering.",
+    contributions: [
+      "Implemented full-stack architecture with Express backend and modular client interfaces",
+      "Built task workflow engine supporting status transitions (To Do, In Progress, Completed)",
+      "Designed dashboard analytics tracking total projects and categorized task counters",
+      "Implemented project search by title and task status filtering",
+    ],
+    technology: ["Node.js", "Express.js", "MongoDB", "JavaScript", "HTML5", "CSS3"],
+    implementationDetails: [
+      "Centralized dashboard displaying project lists, task progress bars, and completion metrics",
+      "RESTful endpoints for project creation, task assignment, status updates, and deletion",
+      "Search and status filter capabilities for quick navigation",
+    ],
+    results: [
+      "Developed as part of the CodeAlpha Full Stack Development Internship",
+    ],
+    notes: [
+      "Developed as part of the CodeAlpha Full Stack Development Internship.",
+    ],
+  },
+  {
+    slug: "intelliview",
+    name: "IntelliView Orchestrator",
+    oneLiner:
+      "AI-powered interview orchestration backend with Gemini-driven question generation.",
+    tags: ["Python", "Gemini API"],
+    github: "https://github.com/DivyaSree0912/intelliview-orchestrator",
+    problem:
+      "AI-powered interviews require reliable backend orchestration — validated configurations, proper environment setup, and dynamically generated questions tailored to specific job descriptions. Without this, interview systems produce generic, untraceable questions.",
+    solution:
+      "A backend orchestration system that validates configuration and environment readiness, then uses the Gemini API to generate interview questions from job descriptions. Each generated question is tagged with source information for traceability.",
+    contributions: [
+      "Implemented configuration validation and environment checks",
+      "Built Gemini-powered question generation (generate_questions with configurable count)",
+      "Ensured AI-generated questions are tagged with source information for traceability",
+      "Managed Gemini API configuration and environment variable setup",
+    ],
+    technology: ["Python", "Gemini API"],
+    implementationDetails: [
+      "generate_questions(job_description, count) generates interview questions from a given job description using the Gemini API",
+      "Each generated question includes source tagging for traceability",
+      "Configuration validation ensures the environment is correctly set up before any API calls",
+    ],
+    results: [],
   },
 ];
 
